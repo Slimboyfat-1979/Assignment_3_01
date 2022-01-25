@@ -1,6 +1,6 @@
 ﻿namespace Assignment_3_01
 {
-    partial class Customer
+    partial class CustomerForm
     {
         /// <summary>
         /// Required designer variable.

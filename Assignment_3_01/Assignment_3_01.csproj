@@ -52,11 +52,12 @@
     <Compile Include="BaseDesign.Designer.cs">
       <DependentUpon>BaseDesign.cs</DependentUpon>
     </Compile>
-    <Compile Include="Customer.cs">
+    <Compile Include="Controller.cs" />
+    <Compile Include="CustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customer.Designer.cs">
-      <DependentUpon>Customer.cs</DependentUpon>
+    <Compile Include="CustomerForm.Designer.cs">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -69,8 +70,8 @@
     <EmbeddedResource Include="BaseDesign.resx">
       <DependentUpon>BaseDesign.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customer.resx">
-      <DependentUpon>Customer.cs</DependentUpon>
+    <EmbeddedResource Include="CustomerForm.resx">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

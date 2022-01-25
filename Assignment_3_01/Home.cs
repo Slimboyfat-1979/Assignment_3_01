@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,13 @@ namespace Assignment_3_01
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Customer c = new Customer();
+            CustomerForm c = new CustomerForm();
             c.Show();
             this.Hide();
+        }
+
+        public void LoadInitialCustomers()
+        {
         }
     }
 }

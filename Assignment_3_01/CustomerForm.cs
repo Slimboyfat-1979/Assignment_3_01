@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Assignment_3_01
 {
-    public partial class Customer : BaseDesign
+    public partial class CustomerForm : BaseDesign
     {
-        public Customer()
+        public CustomerForm()
         {
             InitializeComponent();
         }
