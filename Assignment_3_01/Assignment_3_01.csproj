@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseDesgin.cs">
+    <Compile Include="BaseDesign.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BaseDesgin.Designer.cs">
-      <DependentUpon>BaseDesgin.cs</DependentUpon>
+    <Compile Include="BaseDesign.Designer.cs">
+      <DependentUpon>BaseDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer.Designer.cs">
+      <DependentUpon>Customer.cs</DependentUpon>
     </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -60,8 +66,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="BaseDesgin.resx">
-      <DependentUpon>BaseDesgin.cs</DependentUpon>
+    <EmbeddedResource Include="BaseDesign.resx">
+      <DependentUpon>BaseDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer.resx">
+      <DependentUpon>Customer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

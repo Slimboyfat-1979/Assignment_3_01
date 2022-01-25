@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace Assignment_3_01
 {
-    public partial class Home : BaseDesign
+    public partial class Customer : BaseDesign
     {
-        public Home()
+        public Customer()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Customer c = new Customer();
-            c.Show();
-            this.Hide();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Assignment_3_01
 {
-    partial class BaseDesgin
+    partial class BaseDesign
     {
         /// <summary>
         /// Required designer variable.

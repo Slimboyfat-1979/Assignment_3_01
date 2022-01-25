@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Assignment_3_01
 {
-    public partial class BaseDesgin : Form
+    public partial class BaseDesign : Form
     {
-        public BaseDesgin()
+        public BaseDesign()
         {
             InitializeComponent();
         }
