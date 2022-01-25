@@ -34,21 +34,23 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.DarkKhaki;
             this.label1.Font = new System.Drawing.Font("Segoe Print", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.SaddleBrown;
             this.label1.Location = new System.Drawing.Point(23, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(169, 57);
             this.label1.TabIndex = 0;
             this.label1.Text = "My Bank";
             // 
-            // BaseDesgin
+            // BaseDesign
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Khaki;
             this.ClientSize = new System.Drawing.Size(541, 450);
             this.Controls.Add(this.label1);
-            this.Name = "BaseDesgin";
+            this.Name = "BaseDesign";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
