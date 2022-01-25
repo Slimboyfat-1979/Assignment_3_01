@@ -8,6 +8,6 @@ namespace Assignment_3_01
 {
     public class Controller
     {
-        
+        public List<Customer> customerNameList = new List<Customer>();
     }
 }

@@ -13,6 +13,13 @@ namespace Assignment_3_01
 {
     public partial class Home : BaseDesign
     {
+        private static Controller control = new Controller();
+
+        //Use this method to get the controller used for all classes etc
+        public static Controller GetController()
+        {
+            return control;
+        }
         public Home()
         {
             InitializeComponent();
@@ -20,13 +27,25 @@ namespace Assignment_3_01
 
         private void button1_Click(object sender, EventArgs e)
         {
+            LoadInitialCustomers();
             CustomerForm c = new CustomerForm();
             c.Show();
             this.Hide();
+            
         }
 
         public void LoadInitialCustomers()
         {
+            string[] customerArray;
+            StreamReader reader = new StreamReader("/Data.txt");
+            Customer c;
+            while (!reader.EndOfStream)
+            {
+                customerArray = reader.ReadLine().Split();
+                c = new Customer(customerArray[0]);
+                control.customerNameList.Add(c);
+            
+            }
         }
     }
 }
