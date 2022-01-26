@@ -57,5 +57,15 @@ namespace Assignment_3_01
                 RefreshList();
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {   
+            int seletedCustomer = lstBoxCustomers.SelectedIndex;
+            Customer temp = c.GetCustomer(seletedCustomer-1);
+            BankForm bankForm = new BankForm(temp);
+            this.Hide();
+            bankForm.Show();
+            
+        }
     }
 }
