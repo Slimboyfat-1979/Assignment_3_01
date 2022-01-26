@@ -73,6 +73,11 @@ namespace Assignment_3_01
                             temp.GetEverdayAccount().Balance = c.MakeDeposit(value, balance);
                             RefreshList();
                             break;
+                        case 1:
+                            balance = temp.GetInvestmentAccount().Balance;
+                            temp.GetInvestmentAccount().Balance = c.MakeDeposit(value, balance);
+                            RefreshList();
+                            break;
                     }
                 }
             }
@@ -97,6 +102,13 @@ namespace Assignment_3_01
                 listBox1.Items.Add(name[i]  + balances[i]);
             }
          }
-     }
+        
+        // Cancel Button
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new CustomerForm().Show();
+        }
+    }
  }
 
