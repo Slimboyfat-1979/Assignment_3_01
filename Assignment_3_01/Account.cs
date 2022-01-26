@@ -11,6 +11,8 @@ namespace Assignment_3_01
         public double Balance { get; set; }
         public string Name { get; set; }
 
+        //public abstract void Deposit(double value, double balance);
+
         public Account(string name ,double balance)
         {
             this.Name = name;

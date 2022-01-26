@@ -41,5 +41,12 @@ namespace Assignment_3_01
             }
         }
 
+        //Deposit
+        public double MakeDeposit(double value, double balance)
+        {
+            balance = balance + value;
+            return balance;
+        }
+
     }
 }
