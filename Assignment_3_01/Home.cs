@@ -37,12 +37,12 @@ namespace Assignment_3_01
         public void LoadInitialCustomers()
         {
             string[] customerArray;
-            StreamReader reader = new StreamReader("/Data.txt");
+            StreamReader reader = new StreamReader("/Data1.txt");
             Customer c;
             while (!reader.EndOfStream)
             {
-                customerArray = reader.ReadLine().Split();
-                c = new Customer(customerArray[0]);
+                customerArray = reader.ReadLine().Split(',');
+                c = new Customer(customerArray[0], Convert.ToDouble(customerArray[1]));
                 control.customerNameList.Add(c);
             
             }

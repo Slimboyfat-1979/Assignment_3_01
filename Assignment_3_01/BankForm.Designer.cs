@@ -122,7 +122,7 @@
             this.button5.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(553, 289);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.Size = new System.Drawing.Size(76, 34);
             this.button5.TabIndex = 11;
             this.button5.Text = "Save";
             this.button5.UseVisualStyleBackColor = true;
@@ -132,7 +132,7 @@
             this.button6.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Location = new System.Drawing.Point(635, 289);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.Size = new System.Drawing.Size(75, 34);
             this.button6.TabIndex = 12;
             this.button6.Text = "Cancel";
             this.button6.UseVisualStyleBackColor = true;

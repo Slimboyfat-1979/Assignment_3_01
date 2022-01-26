@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.cs" />
     <Compile Include="AddCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +79,7 @@
     <Compile Include="EditCustomer.Designer.cs">
       <DependentUpon>EditCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="EverdayAccount.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>

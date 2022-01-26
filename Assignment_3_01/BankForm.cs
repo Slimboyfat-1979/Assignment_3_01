@@ -18,6 +18,9 @@ namespace Assignment_3_01
             InitializeComponent();
             this.temp = t;
             label3.Text = + t.GetID() + " " + t.CustomerName;
+            listBox1.Items.Clear();
+            listBox1.Items.Add("Everyday $" + temp.GetEverdayAccount().Balance);
+            //listBox1.Items.Add(temp.GetEverdayAccount().Balance);
         }
     }
 }
