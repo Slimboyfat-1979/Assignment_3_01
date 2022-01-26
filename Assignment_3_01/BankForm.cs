@@ -25,7 +25,7 @@ namespace Assignment_3_01
             label3.Text = + t.GetID() + " " + t.CustomerName;
             listBox1.Items.Clear();
             listBox1.Items.Add("Everyday $" + temp.GetEverdayAccount().Balance);
-            listBox1.Items.Add("Investment $ " + temp.GetInvestmentAccount().Balance);
+            listBox1.Items.Add("Investment $" + temp.GetInvestmentAccount().Balance);
             listBox1.Items.Add("Omni $" + temp.GetOmniAccount().Balance);
             
             
@@ -39,6 +39,7 @@ namespace Assignment_3_01
         //Deposit
         private void button2_Click(object sender, EventArgs e)
         {
+            button2.BackColor = Color.DarkGray;
             button2Clicked = true;
         }
         //Withdraw
@@ -79,13 +80,23 @@ namespace Assignment_3_01
 
         public void RefreshList()
         {
+            int accountName = 0;
+            double[] balances = new double[3];
+            string[] name = { "Everday $", "Investment $","Omni $"};
             listBox1.Items.Clear();
             List<Account> accounts = temp.GetAccounts();
-            foreach(Account a in accounts)
+            foreach (Account a in accounts)
             {
                 
-                //listBox1.Items.Add(a.Balance);
+                balances[accountName] = a.Balance;
+                accountName++;
             }
-        }
-    }
-}
+
+            for(int i = 0; i < balances.Length; i++)
+            {
+                listBox1.Items.Add(name[i]  + balances[i]);
+            }
+         }
+     }
+ }
+
