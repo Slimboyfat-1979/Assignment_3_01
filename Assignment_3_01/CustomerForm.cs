@@ -44,5 +44,18 @@ namespace Assignment_3_01
             EditCustomer editCustomer = new EditCustomer(temp);
             editCustomer.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int selectedCustomer = lstBoxCustomers.SelectedIndex - 1;
+            Customer temp = c.GetCustomer(selectedCustomer);
+            DialogResult dialogResult = MessageBox.Show("Would you like to remove customer: " + temp.CustomerName + "?", "Remove Customer?", MessageBoxButtons.YesNo);
+
+            if(dialogResult == DialogResult.Yes)
+            {
+                c.DeleteCustomer(temp);
+                RefreshList();
+            }
+        }
     }
 }

@@ -32,6 +32,14 @@ namespace Assignment_3_01
                 c.CustomerName = name;
             }
         }
+        //Delete Customer
+        public void DeleteCustomer(Customer c)
+        {
+            if (customerNameList.Contains(c))
+            {
+                customerNameList.Remove(c);
+            }
+        }
 
     }
 }
