@@ -38,6 +38,7 @@
             this.txtValue = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.interestCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label2
@@ -143,11 +144,23 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // interestCheckBox
+            // 
+            this.interestCheckBox.AutoSize = true;
+            this.interestCheckBox.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.interestCheckBox.Location = new System.Drawing.Point(522, 205);
+            this.interestCheckBox.Name = "interestCheckBox";
+            this.interestCheckBox.Size = new System.Drawing.Size(259, 32);
+            this.interestCheckBox.TabIndex = 13;
+            this.interestCheckBox.Text = "View Balance With Interest?";
+            this.interestCheckBox.UseVisualStyleBackColor = true;
+            // 
             // BankForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 487);
+            this.ClientSize = new System.Drawing.Size(790, 487);
+            this.Controls.Add(this.interestCheckBox);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.txtValue);
@@ -170,6 +183,7 @@
             this.Controls.SetChildIndex(this.txtValue, 0);
             this.Controls.SetChildIndex(this.button5, 0);
             this.Controls.SetChildIndex(this.button6, 0);
+            this.Controls.SetChildIndex(this.interestCheckBox, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,5 +201,6 @@
         private System.Windows.Forms.TextBox txtValue;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.CheckBox interestCheckBox;
     }
 }

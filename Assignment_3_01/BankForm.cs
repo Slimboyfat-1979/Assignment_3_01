@@ -18,17 +18,23 @@ namespace Assignment_3_01
         private bool button2Clicked = false;
         private bool button3Clicked = false;
         private bool button4Clicked = false;
+        
         public BankForm(Customer t)
         {
             InitializeComponent();
             this.temp = t;
             label3.Text = + t.GetID() + " " + t.CustomerName;
             listBox1.Items.Clear();
+            interestCheckBox.Checked = false;
+
+            if(interestCheckBox.Checked == false)
+            {
+                
             listBox1.Items.Add("Everyday $" + temp.GetEverdayAccount().Balance);
             listBox1.Items.Add("Investment $" + temp.GetInvestmentAccount().Balance);
             listBox1.Items.Add("Omni $" + temp.GetOmniAccount().Balance);
             
-            
+            }
         }
         //Add New Account
         private void button1_Click(object sender, EventArgs e)
@@ -70,6 +76,7 @@ namespace Assignment_3_01
                 int selected = listBox1.SelectedIndex;
                 double value = Convert.ToDouble(txtValue.Text);
                 double balance;
+                //Deposit
                 if (button2Clicked == true)
                 {
                     switch (selected)
@@ -104,7 +111,9 @@ namespace Assignment_3_01
                             }
                             else
                             {
-                                MessageBox.Show("You do not have enough funds to process this transaction");
+                                balance = balance - Account.withdrawalPenalty;
+                                temp.GetEverdayAccount().Balance = balance;
+                                MessageBox.Show("You do not have enough funds to process this transaction \n You have incurred a $10.00 penalty");
                             }
                             RefreshList();
                             break;
@@ -116,7 +125,9 @@ namespace Assignment_3_01
                             }
                             else
                             {
-                                MessageBox.Show("You do not have enough funds to process this transaction");
+                                balance = balance - Account.withdrawalPenalty;
+                                temp.GetInvestmentAccount().Balance = balance;
+                                MessageBox.Show("You do not have enough funds to process this transaction \n You have incurred a $10.00 penalty");
                             }
                             RefreshList();
                             break;
@@ -128,7 +139,9 @@ namespace Assignment_3_01
                             }
                             else
                             {
-                                MessageBox.Show("You do not have enough funds to process this transaction");
+                                balance = balance - Account.withdrawalPenalty;
+                                temp.GetOmniAccount().Balance = balance;
+                                MessageBox.Show("You do not have enough funds to process this transaction \n You have incurred a $10.00 penalty");
                             }
                             RefreshList();
                             break;
@@ -141,7 +154,7 @@ namespace Assignment_3_01
         {
             int accountName = 0;
             double[] balances = new double[3];
-            string[] name = { "Everday $", "Investment $","Omni $"};
+            string[] name = { "Everyday $", "Investment $","Omni $"};
             listBox1.Items.Clear();
             List<Account> accounts = temp.GetAccounts();
             foreach (Account a in accounts)
