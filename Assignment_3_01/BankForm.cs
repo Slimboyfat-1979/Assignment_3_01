@@ -18,6 +18,7 @@ namespace Assignment_3_01
         private bool button2Clicked = false;
         private bool button3Clicked = false;
         private bool button4Clicked = false;
+        private bool checkClicked = false;
         
         public BankForm(Customer t)
         {
@@ -169,12 +170,51 @@ namespace Assignment_3_01
                 listBox1.Items.Add(name[i]  + balances[i]);
             }
          }
+
+        public void RefreshListWithInterest()
+        {
+            int accountName = 0;
+            double[] balances = new double[3];
+            string[] name = { "Everyday $", "Investment $", "Omni $" };
+            listBox1.Items.Clear();
+            List<Account> accounts = temp.GetAccounts();
+            foreach (Account a in accounts)
+            {
+
+                balances[accountName] = a.BalanceWithInterest;
+                accountName++;
+            }
+
+            for (int i = 0; i < balances.Length; i++)
+            {
+                listBox1.Items.Add(name[i] + balances[i]);
+            }
+        }
         
         // Cancel Button
         private void button6_Click(object sender, EventArgs e)
         {
             this.Hide();
             new CustomerForm().Show();
+        }
+
+        //Checkbox changed functionality
+        private void interestCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            
+
+            if(interestCheckBox.Checked == true)
+            {
+                listBox1.Items.Clear();
+                RefreshListWithInterest();
+               
+            }
+            if(interestCheckBox.Checked == false)
+            {
+                listBox1.Items.Clear();
+                RefreshList();
+                
+            }     
         }
     }
  }

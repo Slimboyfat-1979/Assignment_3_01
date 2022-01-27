@@ -147,13 +147,14 @@
             // interestCheckBox
             // 
             this.interestCheckBox.AutoSize = true;
-            this.interestCheckBox.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interestCheckBox.Location = new System.Drawing.Point(522, 205);
+            this.interestCheckBox.Font = new System.Drawing.Font("Segoe Print", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.interestCheckBox.Location = new System.Drawing.Point(536, 197);
             this.interestCheckBox.Name = "interestCheckBox";
-            this.interestCheckBox.Size = new System.Drawing.Size(259, 32);
+            this.interestCheckBox.Size = new System.Drawing.Size(246, 56);
             this.interestCheckBox.TabIndex = 13;
-            this.interestCheckBox.Text = "View Balance With Interest?";
+            this.interestCheckBox.Text = "View Balance With Interest?\r\nCurrent Rate 4%\r\n";
             this.interestCheckBox.UseVisualStyleBackColor = true;
+            this.interestCheckBox.CheckedChanged += new System.EventHandler(this.interestCheckBox_CheckedChanged);
             // 
             // BankForm
             // 
