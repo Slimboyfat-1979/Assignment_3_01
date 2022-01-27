@@ -45,6 +45,7 @@ namespace Assignment_3_01
         //Withdraw
         private void button3_Click(object sender, EventArgs e)
         {
+            button3.BackColor = Color.DarkGray;
             button3Clicked = true;
         }
         //Transfer
@@ -55,6 +56,11 @@ namespace Assignment_3_01
         //Save Button
         private void button5_Click(object sender, EventArgs e)
         {
+            //Fix this bug
+            if (txtValue.Text.Equals("")) 
+            {
+                MessageBox.Show("Please enter an amount");
+            }
             if (button1Clicked == false && button2Clicked == false && button3Clicked == false && button4Clicked == false)
             {
                 MessageBox.Show("Please select an action");
@@ -76,6 +82,54 @@ namespace Assignment_3_01
                         case 1:
                             balance = temp.GetInvestmentAccount().Balance;
                             temp.GetInvestmentAccount().Balance = c.MakeDeposit(value, balance);
+                            RefreshList();
+                            break;
+                        case 2:
+                            balance = temp.GetOmniAccount().Balance;
+                            temp.GetOmniAccount().Balance = c.MakeDeposit(value, balance);
+                            RefreshList();
+                            break;
+                    }
+                }
+                //Withdrawal
+                if(button3Clicked == true)
+                {
+                    switch (selected)
+                    {
+                        case 0:
+                            balance = temp.GetEverdayAccount().Balance;
+                            if(c.FailedWithdrawalCheck(value, balance)!= true)
+                            {
+                                temp.GetEverdayAccount().Balance = c.MakeWithdrawal(value, balance);
+                            }
+                            else
+                            {
+                                MessageBox.Show("You do not have enough funds to process this transaction");
+                            }
+                            RefreshList();
+                            break;
+                        case 1:
+                            balance = temp.GetInvestmentAccount().Balance;
+                            if(c.FailedWithdrawalCheck(value, balance) != true)
+                            {
+                                temp.GetInvestmentAccount().Balance = c.MakeWithdrawal(value, balance);
+                            }
+                            else
+                            {
+                                MessageBox.Show("You do not have enough funds to process this transaction");
+                            }
+                            RefreshList();
+                            break;
+                        case 2:
+                            balance = temp.GetOmniAccount().Balance;
+                            if(c.FailedWithdrawalCheck(value, balance) != true)
+                            {
+                                temp.GetOmniAccount().Balance = c.MakeWithdrawal(value, balance);
+                            }
+                            else
+                            {
+                                MessageBox.Show("You do not have enough funds to process this transaction");
+                            }
                             RefreshList();
                             break;
                     }

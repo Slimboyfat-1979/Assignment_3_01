@@ -48,5 +48,31 @@ namespace Assignment_3_01
             return balance;
         }
 
+        //Basic Withdrawal possible multple overloaded methods depending
+        public double MakeWithdrawal(double value, double balance)
+        {
+            if(value > balance)
+            {
+                //return a warning
+                return -1;
+            }
+            else
+            {
+               return balance -= value;
+            }
+        }
+
+        public bool FailedWithdrawalCheck(double value, double balance)
+        {
+            if(value > balance)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }
