@@ -28,6 +28,7 @@ namespace Assignment_3_01
             return accountList;
         }
 
+
         public Customer(string name)
         {
             this.CustomerName = name;
@@ -36,11 +37,8 @@ namespace Assignment_3_01
         }
 
         //Could add more references for the other accounts here
-        public Customer(string name, double eBalance, double iBalance, double oBalance)
+        public Customer(string name, double eBalance, double iBalance, double oBalance) : this(name)
         {
-            this.CustomerName = name;
-            id = nextID;
-            nextID++;
             SettEverdayAccount(new EverdayAccount(name, eBalance));
             SetInvestmentAccount(new InvestmentAccount(name, iBalance));
             SetOmniAccount(new OmniAccount(name, oBalance));

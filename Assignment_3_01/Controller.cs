@@ -19,9 +19,9 @@ namespace Assignment_3_01
         }
 
         //Adds a customer
-        public void AddCustomer(string name)
+        public void AddCustomer(string name, double eBalance, double iBalance, double oBalance)
         {
-            customerNameList.Add(new Customer(name));
+            customerNameList.Add(new Customer(name, eBalance, iBalance, oBalance));
         }
 
         //Edits a customer
@@ -72,6 +72,12 @@ namespace Assignment_3_01
             {
                 return false;
             }
+        }
+        public double GetBalanceWithInterest(double value)
+        {
+            
+            double newBalance = value * (Account.interestRate / 100);
+            return newBalance;
         }
 
     }

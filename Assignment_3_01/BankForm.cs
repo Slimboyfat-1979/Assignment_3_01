@@ -171,25 +171,6 @@ namespace Assignment_3_01
             }
          }
 
-        public void RefreshListWithInterest()
-        {
-            int accountName = 0;
-            double[] balances = new double[3];
-            string[] name = { "Everyday $", "Investment $", "Omni $" };
-            listBox1.Items.Clear();
-            List<Account> accounts = temp.GetAccounts();
-            foreach (Account a in accounts)
-            {
-
-                balances[accountName] = a.BalanceWithInterest;
-                accountName++;
-            }
-
-            for (int i = 0; i < balances.Length; i++)
-            {
-                listBox1.Items.Add(name[i] + balances[i]);
-            }
-        }
         
         // Cancel Button
         private void button6_Click(object sender, EventArgs e)
@@ -198,24 +179,58 @@ namespace Assignment_3_01
             new CustomerForm().Show();
         }
 
-        //Checkbox changed functionality
         private void interestCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            
-
             if(interestCheckBox.Checked == true)
             {
+                List<Account> accounts = temp.GetAccounts();
+                List<double> balance = new List<double>();
+                List<double> interest = new List<double>();
+                List<double> balanceWithInterest = new List<double>();
+                string[] name = { "Everyday $", "Investment $", "Omni $" };
+
+                //Get the balances
+                foreach (Account a in accounts)
+                {
+                    balance.Add(a.Balance);
+                }
+
+                //Get the interest from those balances
                 listBox1.Items.Clear();
-                RefreshListWithInterest();
-               
+                foreach (double d in balance)
+                {
+                    interest.Add(c.GetBalanceWithInterest(d));
+                }
+
+                int count = 0;
+                while (count < balance.Count)
+                {
+                    double sum = balance[count] + interest[count];
+                    balanceWithInterest.Add(sum);
+                    count++;
+                }
+
+                //Write out labels here
+                /*
+                foreach (double d in balanceWithInterest)
+                {
+
+                    listBox1.Items.Add(d);
+                }
+                */
+
+                for(int i = 0; i < balanceWithInterest.Count; i++)
+                {
+                    listBox1.Items.Add(name[i] + balanceWithInterest[i]);
+                }
             }
+
             if(interestCheckBox.Checked == false)
             {
-                listBox1.Items.Clear();
                 RefreshList();
-                
-            }     
+            }
         }
     }
- }
+}
+ 
 
