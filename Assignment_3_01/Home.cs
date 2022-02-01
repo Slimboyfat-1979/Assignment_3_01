@@ -41,8 +41,9 @@ namespace Assignment_3_01
             Customer c;
             while (!reader.EndOfStream)
             {
-                customerArray = reader.ReadLine().Split();
-                c = new Customer(customerArray[0]);
+                customerArray = reader.ReadLine().Split(',');
+                //Customer objecte created array 1, 2, 3 = Everyday, Investment, Omni
+                c = new Customer(customerArray[0], Convert.ToDouble(customerArray[1]),Convert.ToDouble(customerArray[2]), Convert.ToDouble(customerArray[3]));
                 control.customerNameList.Add(c);
             
             }

@@ -21,7 +21,11 @@ namespace Assignment_3_01
         private void button1_Click(object sender, EventArgs e)
         {
             string newCustomer = customerEntry.Text;
-            c.AddCustomer(newCustomer);
+            double eBalance = Convert.ToInt32(eBalanceText.Text);
+            double iBalance = Convert.ToInt32(IBalanceText.Text);
+            double oBalance = Convert.ToInt32(OBalanceText.Text);
+            c.AddCustomer(newCustomer, eBalance, iBalance, oBalance);
+
             this.Hide();
             CustomerForm customerForm = new CustomerForm();
             customerForm.Show();

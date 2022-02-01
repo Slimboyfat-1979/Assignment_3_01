@@ -19,9 +19,9 @@ namespace Assignment_3_01
         }
 
         //Adds a customer
-        public void AddCustomer(string name)
+        public void AddCustomer(string name, double eBalance, double iBalance, double oBalance)
         {
-            customerNameList.Add(new Customer(name));
+            customerNameList.Add(new Customer(name, eBalance, iBalance, oBalance));
         }
 
         //Edits a customer
@@ -39,6 +39,45 @@ namespace Assignment_3_01
             {
                 customerNameList.Remove(c);
             }
+        }
+
+        //Deposit
+        public double MakeDeposit(double value, double balance)
+        {
+            balance = balance + value;
+            return balance;
+        }
+
+        //Basic Withdrawal possible multple overloaded methods depending
+        public double MakeWithdrawal(double value, double balance)
+        {
+            if(value > balance)
+            {
+                //return a warning
+                return -1;
+            }
+            else
+            {
+               return balance -= value;
+            }
+        }
+
+        public bool FailedWithdrawalCheck(double value, double balance)
+        {
+            if(value > balance)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public double GetBalanceWithInterest(double value)
+        {
+            
+            double newBalance = value * (Account.interestRate / 100);
+            return newBalance;
         }
 
     }
