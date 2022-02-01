@@ -18,7 +18,7 @@ namespace Assignment_3_01
         private bool button2Clicked = false;
         private bool button3Clicked = false;
         private bool button4Clicked = false;
-        private bool checkClicked = false;
+        
         
         public BankForm(Customer t)
         {
@@ -40,7 +40,6 @@ namespace Assignment_3_01
         //Add New Account
         private void button1_Click(object sender, EventArgs e)
         {
-            button1Clicked = true;
         }
 
         //Deposit
@@ -59,7 +58,12 @@ namespace Assignment_3_01
         private void button4_Click(object sender, EventArgs e)
         {
             button4Clicked = true;
-        }
+            button1Clicked = true;
+            TransferForm f = new TransferForm(temp);
+            f.StartPosition = FormStartPosition.CenterScreen;
+            f.Show();
+            this.Hide();
+    }
         //Save Button
         private void button5_Click(object sender, EventArgs e)
         {

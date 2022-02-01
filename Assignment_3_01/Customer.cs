@@ -23,7 +23,7 @@ namespace Assignment_3_01
             return id;
         }
 
-        public List<Account> GetAccounts()
+        public  List<Account> GetAccounts()
         {
             return accountList;
         }
