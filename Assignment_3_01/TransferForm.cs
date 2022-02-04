@@ -18,7 +18,8 @@ namespace Assignment_3_01
         Controller c = Home.GetController();
         Customer temp;
         int count = 0;
-        List<int> counter = new List<int>();
+        string[] nameOfAccounts = { "Everday $", "Investment $", "Omni $" };
+       
         //Get balances of accounts
         List<Account> accountList;
         
@@ -33,16 +34,31 @@ namespace Assignment_3_01
         public void RefreshListBox()
         {
            
-            string[] name = { "Everyday $", "Investment $", "Omni $" };
             foreach(Account a in accountList)
             {
+                listBoxFrom.Items.Add(nameOfAccounts[count] + a.Balance);
+                listBoxTo.Items.Add(nameOfAccounts[count] + a.Balance);
                 fromBoxBalances.Add(a.Balance);
                 toBoxBalances.Add(a.Balance);
-                listBoxFrom.Items.Add(name[count] + a.Balance);
-                listBoxTo.Items.Add(name[count] + a.Balance);
+                //Need this to keep track of how many balances there are
+                //CounterOfBalances = number of balances count is the label count of the accounts
+                
                 count++;
-                counter.Add(count);
             }
+
+
+            //string[] name = { "Everyday $", "Investment $", "Omni $" };
+            //foreach(Account a in accountList)
+            //{
+            //    fromBoxBalances.Add(a.Balance);
+            //    toBoxBalances.Add(a.Balance);
+            //    listBoxFrom.Items.Add(name[count] + a.Balance);
+            //    listBoxTo.Items.Add(name[count] + a.Balance);
+            //    count++;
+            //    counterTo.Add(count);
+            //    counterFrom.Add(count);
+            //}
+            //count = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -54,29 +70,33 @@ namespace Assignment_3_01
         //I need to set the balances in the account from here. 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            count = 0;
+            double amountToTransfer = Convert.ToDouble(textAmount.Text);
             
-            double amount = Convert.ToInt32(textAmount.Text);
-            int selectedAmountFromIndex = listBoxFrom.SelectedIndex;
-            int selectedAmountToIndex = listBoxTo.SelectedIndex;
+            int selectedIndexFrom = listBoxFrom.SelectedIndex;
+            int selectedIndexTo = listBoxTo.SelectedIndex;
 
-            double amountFrom = fromBoxBalances[selectedAmountFromIndex];
-            double amountTo = toBoxBalances[selectedAmountToIndex];
+            double amountF = fromBoxBalances[selectedIndexFrom];
+            double amountT = toBoxBalances[selectedIndexTo];
 
-            DialogResult result = MessageBox.Show($"Do you want to transfer from {fromBoxBalances[selectedAmountFromIndex]} to ?", "Confirmation", MessageBoxButtons.YesNoCancel);
+            amountF -= amountToTransfer;
+            amountT += amountToTransfer;
 
-            amountFrom = amountFrom - amount;
-            amountTo = amountTo + amount;
-            // Two Seperate functionalities for this
-            accountList[counter[count]].Balance = amountFrom;
+            fromBoxBalances[selectedIndexFrom] = amountF;
+            toBoxBalances[selectedIndexTo] = amountT;
+
+            accountList[selectedIndexFrom].Balance = amountF;
+            accountList[selectedIndexTo].Balance = amountT;
 
             listBoxFrom.Items.Clear();
             listBoxTo.Items.Clear();
-            listBoxFrom.Items.Add(amountFrom);
-            listBoxTo.Items.Add(amountTo);
 
-           
-            
-            
+            foreach (Account a in accountList)
+            {
+                listBoxFrom.Items.Add(nameOfAccounts[count] + a.Balance);
+                listBoxTo.Items.Add(nameOfAccounts[count] + a.Balance);
+                count++;
+            }
         }
     }
 }
