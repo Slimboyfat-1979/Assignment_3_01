@@ -8,6 +8,7 @@ namespace Assignment_3_01
 {
     public abstract class Account
     {
+
         public static double interestRate = 4.00;
         public static double withdrawalPenalty = 10;
         public double Balance { get; set; }

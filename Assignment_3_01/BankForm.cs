@@ -14,11 +14,8 @@ namespace Assignment_3_01
     {
         Customer temp;
         Controller c = Home.GetController();
-        private bool button1Clicked = false;
-        private bool button2Clicked = false;
-        private bool button3Clicked = false;
-        private bool button4Clicked = false;
-        
+        private bool[] buttonsClicked = { false, false };
+        private string[] accountNames = { "Everyday", "Invesntment", "Omni" };
         
         public BankForm(Customer t)
         {
@@ -31,13 +28,17 @@ namespace Assignment_3_01
             if(interestCheckBox.Checked == false)
             {
                 
-            listBox1.Items.Add("Everyday $" + temp.GetEverdayAccount().Balance);
-            listBox1.Items.Add("Investment $" + temp.GetInvestmentAccount().Balance);
-            listBox1.Items.Add("Omni $" + temp.GetOmniAccount().Balance);
+            //listBox1.Items.Add("Everyday $" + temp.GetEverdayAccount().Balance);
+            //listBox1.Items.Add("Investment $" + temp.GetInvestmentAccount().Balance);
+            //listBox1.Items.Add("Omni $" + temp.GetOmniAccount().Balance);
+            foreach(Account a in t.GetAccounts())
+                {
+                    listBox1.Items.Add()
+                }
             
             }
         }
-        //Add New Account
+
         private void button1_Click(object sender, EventArgs e)
         {
             AddNewAccount newAccount = new AddNewAccount(temp);
@@ -48,20 +49,28 @@ namespace Assignment_3_01
         //Deposit
         private void button2_Click(object sender, EventArgs e)
         {
-            button2.BackColor = Color.DarkGray;
-            button2Clicked = true;
+            buttonsClicked[0] = true;
+            if(buttonsClicked[0] == true)
+            {
+                button2.BackColor = Color.DarkGray;
+                button3.UseVisualStyleBackColor = true;
+                buttonsClicked[1] = false;
+            }     
         }
         //Withdraw
         private void button3_Click(object sender, EventArgs e)
         {
-            button3.BackColor = Color.DarkGray;
-            button3Clicked = true;
+            buttonsClicked[1] = true;
+            if(buttonsClicked[1] == true)
+            {
+                button3.BackColor = Color.DarkGray;
+                button2.UseVisualStyleBackColor = true;
+                buttonsClicked[1] = false;
+            }
         }
         //Transfer
         private void button4_Click(object sender, EventArgs e)
         {
-            button4Clicked = true;
-            button1Clicked = true;
             TransferForm f = new TransferForm(temp);
             f.StartPosition = FormStartPosition.CenterScreen;
             f.Show();
@@ -70,12 +79,13 @@ namespace Assignment_3_01
         //Save Button
         private void button5_Click(object sender, EventArgs e)
         {
+
             //Fix this bug
             if (txtValue.Text.Equals("")) 
             {
                 MessageBox.Show("Please enter an amount");
             }
-            if (button1Clicked == false && button2Clicked == false && button3Clicked == false && button4Clicked == false)
+            if (buttonsClicked[0] == false && buttonsClicked[1] == false && buttonsClicked[2] == false && buttonsClicked[3] == false)
             {
                 MessageBox.Show("Please select an action");
             }
@@ -85,7 +95,7 @@ namespace Assignment_3_01
                 double value = Convert.ToDouble(txtValue.Text);
                 double balance;
                 //Deposit
-                if (button2Clicked == true)
+                if (buttonsClicked[1] == true)
                 {
                     switch (selected)
                     {
@@ -107,7 +117,7 @@ namespace Assignment_3_01
                     }
                 }
                 //Withdrawal
-                if(button3Clicked == true)
+                if(buttonsClicked[2] == true)
                 {
                     switch (selected)
                     {
