@@ -16,9 +16,11 @@ namespace Assignment_3_01
         List<double> fromBoxBalances = new List<double>();
         List<double> toBoxBalances = new List<double>();
         Controller c = Home.GetController();
+        DialogResult messages;
         Customer temp;
         int count = 0;
-        List<int> counter = new List<int>();
+        string[] nameOfAccounts = { "Everday", "Investment", "Omni" };
+       
         //Get balances of accounts
         List<Account> accountList;
         
@@ -33,15 +35,13 @@ namespace Assignment_3_01
         public void RefreshListBox()
         {
            
-            string[] name = { "Everyday $", "Investment $", "Omni $" };
             foreach(Account a in accountList)
             {
+                listBoxFrom.Items.Add(nameOfAccounts[count] + " $"  + a.Balance);
+                listBoxTo.Items.Add(nameOfAccounts[count] + " $" + a.Balance);
                 fromBoxBalances.Add(a.Balance);
                 toBoxBalances.Add(a.Balance);
-                listBoxFrom.Items.Add(name[count] + a.Balance);
-                listBoxTo.Items.Add(name[count] + a.Balance);
                 count++;
-                counter.Add(count);
             }
         }
 
@@ -54,29 +54,54 @@ namespace Assignment_3_01
         //I need to set the balances in the account from here. 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            
-            double amount = Convert.ToInt32(textAmount.Text);
-            int selectedAmountFromIndex = listBoxFrom.SelectedIndex;
-            int selectedAmountToIndex = listBoxTo.SelectedIndex;
+            count = 0;
+            double amountF;
+            double amountT;
+            double amountToTransfer;
 
-            double amountFrom = fromBoxBalances[selectedAmountFromIndex];
-            double amountTo = toBoxBalances[selectedAmountToIndex];
+            int selectedIndexFrom = listBoxFrom.SelectedIndex;
+            int selectedIndexTo = listBoxTo.SelectedIndex;
 
-            DialogResult result = MessageBox.Show($"Do you want to transfer from {fromBoxBalances[selectedAmountFromIndex]} to ?", "Confirmation", MessageBoxButtons.YesNoCancel);
+            if (listBoxFrom.SelectedIndex == -1 || listBoxTo.SelectedIndex == -1)
+            {
+                messages = MessageBox.Show("You need to select an account to transfer from and an account to transfer to");
+            }
+            else
+            {
+                if(textAmount.Text == "")
+                {
+                    messages = MessageBox.Show("You need to enter a value to transfer");
+                }
+                else
+                {
+                    amountToTransfer = Convert.ToDouble(textAmount.Text);
+                    amountF = fromBoxBalances[selectedIndexFrom];
+                    amountT = toBoxBalances[selectedIndexTo];
+                    messages = MessageBox.Show($"Would you like to transfer ${amountToTransfer} \n from your {nameOfAccounts[selectedIndexFrom]} account to your {nameOfAccounts[selectedIndexTo]} account?", "No", MessageBoxButtons.YesNoCancel);
+                    if (messages == DialogResult.Yes)
+                    {
+                        textAmount.Text = "";
+                        amountF -= amountToTransfer;
+                        amountT += amountToTransfer;
 
-            amountFrom = amountFrom - amount;
-            amountTo = amountTo + amount;
-            // Two Seperate functionalities for this
-            accountList[counter[count]].Balance = amountFrom;
+                        fromBoxBalances[selectedIndexFrom] = amountF;
+                        toBoxBalances[selectedIndexTo] = amountT;
 
-            listBoxFrom.Items.Clear();
-            listBoxTo.Items.Clear();
-            listBoxFrom.Items.Add(amountFrom);
-            listBoxTo.Items.Add(amountTo);
+                        accountList[selectedIndexFrom].Balance = amountF;
+                        accountList[selectedIndexTo].Balance = amountT;
 
-           
-            
-            
+                        listBoxFrom.Items.Clear();
+                        listBoxTo.Items.Clear();
+
+                        foreach (Account a in accountList)
+                        {
+                            listBoxFrom.Items.Add(nameOfAccounts[count] + " $" + a.Balance);
+                            listBoxTo.Items.Add(nameOfAccounts[count] + " $" + a.Balance);
+                            count++;
+                        }
+                    }
+                }  
+            }
         }
     }
 }

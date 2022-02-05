@@ -40,6 +40,9 @@ namespace Assignment_3_01
         //Add New Account
         private void button1_Click(object sender, EventArgs e)
         {
+            AddNewAccount newAccount = new AddNewAccount(temp);
+            this.Hide();
+            newAccount.Show();
         }
 
         //Deposit
