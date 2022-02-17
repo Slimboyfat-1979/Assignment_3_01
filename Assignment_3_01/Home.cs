@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace Assignment_3_01
 {
+    
     public partial class Home : BaseDesign
     {
         private static Controller control = new Controller();

@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace Assignment_3_01
 {
+    [Serializable]
     public class Customer
     {
         EverdayAccount e;
@@ -35,6 +39,9 @@ namespace Assignment_3_01
             this.CustomerName = name;
             id = nextID;
             nextID++;
+            WriteBinaryData();
+
+            ReadBinaryData();
         }
 
         //Could add more references for the other accounts here
@@ -78,6 +85,32 @@ namespace Assignment_3_01
         public EverdayAccount GetEverdayAccount()
         {
             return this.e;
+        }
+
+        public void WriteBinaryData()
+        {
+            
+            IFormatter formatter = new BinaryFormatter();
+
+       
+            Stream stream = new FileStream("objects.bin", FileMode.Create,
+            FileAccess.Write, FileShare.None);
+
+        
+            formatter.Serialize(stream, accountList);
+
+            //close the file
+            stream.Close();
+
+        }
+
+        public void ReadBinaryData()
+        {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("Objects.bin", FileMode.Open, FileAccess.Read,
+            FileShare.Read);
+            accountList = (List<Account>)formatter.Deserialize(stream);
+            stream.Close();
         }
     }
 }

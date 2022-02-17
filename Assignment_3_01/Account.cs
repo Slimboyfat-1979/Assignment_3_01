@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment_3_01
 {
+    [Serializable]
     public abstract class Account
     {
         public int AccountIndicator { get; set; }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace Assignment_3_01
 {
+    [Serializable]
     public partial class AddCustomer : BaseDesign
     {
         Controller c = Home.GetController();
