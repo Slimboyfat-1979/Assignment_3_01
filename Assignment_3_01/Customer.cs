@@ -12,6 +12,7 @@ namespace Assignment_3_01
         InvestmentAccount i;
         OmniAccount o;
 
+        //Name, amount, account indicator
         private List<Account> accountList = new List<Account>();
 
         private int id;
@@ -23,7 +24,7 @@ namespace Assignment_3_01
             return id;
         }
 
-        public  List<Account> GetAccounts()
+        public List<Account> GetAccounts()
         {
             return accountList;
         }
@@ -37,11 +38,12 @@ namespace Assignment_3_01
         }
 
         //Could add more references for the other accounts here
-        public Customer(string name, double eBalance, double iBalance, double oBalance) : this(name)
+        public Customer(string name, double eBalance, double iBalance, double oBalance, int[] accountIndicator) : this(name)
         {
-            SettEverdayAccount(new EverdayAccount(name, eBalance));
-            SetInvestmentAccount(new InvestmentAccount(name, iBalance));
-            SetOmniAccount(new OmniAccount(name, oBalance));
+
+            SetEverdayAccount(new EverdayAccount(name, eBalance, accountIndicator[0]));
+            SetInvestmentAccount(new InvestmentAccount(name, iBalance, accountIndicator[1]));
+            SetOmniAccount(new OmniAccount(name, oBalance, accountIndicator[2]));
 
         }
 
@@ -67,7 +69,7 @@ namespace Assignment_3_01
             return this.i;
         }
 
-        public void SettEverdayAccount(EverdayAccount e)
+        public void SetEverdayAccount(EverdayAccount e)
         {
             this.e = e;
             accountList.Add(this.e);

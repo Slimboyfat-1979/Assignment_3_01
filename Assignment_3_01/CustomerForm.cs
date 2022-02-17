@@ -21,9 +21,10 @@ namespace Assignment_3_01
 
         public void RefreshList()
         {
+            
             lstBoxCustomers.Items.Clear();
             lstBoxCustomers.Items.Add("ID\tName");
-            foreach(Customer customer in c.customerNameList)
+            foreach (Customer customer in c.customerNameList)
             {
                 lstBoxCustomers.Items.Add(customer.GetID() + "\t" + customer.CustomerName);
             }

@@ -8,7 +8,7 @@ namespace Assignment_3_01
 {
     public class OmniAccount : InvestmentAccount
     {
-        public OmniAccount(string name, double balance) : base(name, balance)
+        public OmniAccount(string name, double balance, int accountIndicator) : base(name, balance, accountIndicator)
         {
 
         }

@@ -8,10 +8,14 @@ namespace Assignment_3_01
 {
     public class Controller
     {
+        //THIS IS THE LIST TO ITERATE THROUGH
         public List<Customer> customerNameList = new List<Customer>();
 
-        //Create temporaray customer for those methods that need it
-        Customer temp;
+        //Use this to get the customerslist with all the information available
+        public List<Customer> GetCustomerNameList()
+        {
+            return customerNameList;
+        }
 
         public Customer GetCustomer(int index)
         {
@@ -19,9 +23,9 @@ namespace Assignment_3_01
         }
 
         //Adds a customer
-        public void AddCustomer(string name, double eBalance, double iBalance, double oBalance)
+        public void AddCustomer(string name, double eBalance, double iBalance, double oBalance, int[] accountTypeIndicator)
         {
-            customerNameList.Add(new Customer(name, eBalance, iBalance, oBalance));
+            customerNameList.Add(new Customer(name, eBalance, iBalance, oBalance, accountTypeIndicator));
         }
 
         //Edits a customer

@@ -32,20 +32,22 @@ namespace Assignment_3_01
             {
                 case 0:
                     //Do something here
-                    temp.SettEverdayAccount(new EverdayAccount(temp.CustomerName, amount));
-                    accountName = accountNames[selectedAccount];
                     accountTypeIndicator = 0;
+                    temp.SetEverdayAccount(new EverdayAccount(temp.CustomerName, amount, accountTypeIndicator));
+                    accountName = accountNames[selectedAccount];
                     break;
                 case 1:
                     //Do something here
-                    temp.SetInvestmentAccount(new InvestmentAccount(temp.CustomerName, amount));
-                    accountName = accountNames[selectedAccount];
                     accountTypeIndicator = 1;
+                    temp.SetInvestmentAccount(new InvestmentAccount(temp.CustomerName, amount, accountTypeIndicator));
+                    accountName = accountNames[selectedAccount];
+                   
                     break;
                 case 2:
-                    temp.SetOmniAccount(new OmniAccount(temp.CustomerName, amount));
-                    accountName = accountNames[selectedAccount];
                     accountTypeIndicator = 2;
+                    temp.SetOmniAccount(new OmniAccount(temp.CustomerName, amount, accountTypeIndicator));
+                    accountName = accountNames[selectedAccount];
+                   
                     //Do something here
                     break;
             }

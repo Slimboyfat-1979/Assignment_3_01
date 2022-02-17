@@ -8,7 +8,7 @@ namespace Assignment_3_01
 {
     public abstract class Account
     {
-
+        public int AccountIndicator { get; set; }
         public static double interestRate = 4.00;
         public static double withdrawalPenalty = 10;
         public double Balance { get; set; }
@@ -17,14 +17,11 @@ namespace Assignment_3_01
 
         
 
-        public Account(string name ,double balance)
+        public Account(string name ,double balance, int accountIndicator)
         {
             this.Name = name;
             this.Balance = balance;
-            //double balanceWithInterest = GetInterestRate(balance, interestRate);
-            //this.BalanceWithInterest = balance + balanceWithInterest;
-            
+            this.AccountIndicator = accountIndicator; 
         }
-        
     }
 }
