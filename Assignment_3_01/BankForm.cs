@@ -63,11 +63,11 @@ namespace Assignment_3_01
         //Transfer
         private void button4_Click(object sender, EventArgs e)
         {
-            //TransferForm f = new TransferForm(temp);
-            //f.StartPosition = FormStartPosition.CenterScreen;
-            //f.Show();
-            //this.Hide();
-    }
+            TransferForm f = new TransferForm(temp);
+            f.StartPosition = FormStartPosition.CenterScreen;
+            f.Show();
+            this.Hide();
+        }
         //Save Button
         private void button5_Click(object sender, EventArgs e)
         {

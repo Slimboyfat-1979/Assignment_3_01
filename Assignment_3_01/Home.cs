@@ -28,7 +28,7 @@ namespace Assignment_3_01
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LoadInitialCustomers();
+            //LoadInitialCustomers();
             CustomerForm c = new CustomerForm();
             c.Show();
             this.Hide();
