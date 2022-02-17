@@ -13,8 +13,10 @@ namespace Assignment_3_01
     public partial class AddNewAccount : BaseDesign
     {
         Customer temp;
+        int accountTypeIndicator;
         public AddNewAccount(Customer t)
         {
+            
             this.temp = t;
             InitializeComponent();
             label5.Text = "For Customer: " + t.CustomerName;
@@ -30,21 +32,32 @@ namespace Assignment_3_01
             {
                 case 0:
                     //Do something here
-                    temp.SettEverdayAccount(new EverdayAccount(temp.CustomerName, amount));
+                    accountTypeIndicator = 0;
+                    temp.SetEverdayAccount(new EverdayAccount(temp.CustomerName, amount, accountTypeIndicator));
                     accountName = accountNames[selectedAccount];
                     break;
                 case 1:
                     //Do something here
-                    temp.SetInvestmentAccount(new InvestmentAccount(temp.CustomerName, amount));
+                    accountTypeIndicator = 1;
+                    temp.SetInvestmentAccount(new InvestmentAccount(temp.CustomerName, amount, accountTypeIndicator));
                     accountName = accountNames[selectedAccount];
+                   
                     break;
                 case 2:
-                    temp.SetOmniAccount(new OmniAccount(temp.CustomerName, amount));
+                    accountTypeIndicator = 2;
+                    temp.SetOmniAccount(new OmniAccount(temp.CustomerName, amount, accountTypeIndicator));
                     accountName = accountNames[selectedAccount];
+                   
                     //Do something here
                     break;
             }
             MessageBox.Show($"A new {accountName} account has been created for {temp.CustomerName} with a balance of ${Convert.ToString(amount)}");
+            this.Hide();
+            new BankForm(temp).Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
             this.Hide();
             new BankForm(temp).Show();
         }

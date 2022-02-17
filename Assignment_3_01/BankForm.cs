@@ -14,11 +14,8 @@ namespace Assignment_3_01
     {
         Customer temp;
         Controller c = Home.GetController();
-        private bool button1Clicked = false;
-        private bool button2Clicked = false;
-        private bool button3Clicked = false;
-        private bool button4Clicked = false;
-        
+        private string[] accountNames = { "Everyday", "Investment", "Omni" };
+        bool[] buttonClicked = { false, false };
         
         public BankForm(Customer t)
         {
@@ -28,16 +25,22 @@ namespace Assignment_3_01
             listBox1.Items.Clear();
             interestCheckBox.Checked = false;
 
+            //Working on the list iteration for the bankform
             if(interestCheckBox.Checked == false)
             {
                 
-            listBox1.Items.Add("Everyday $" + temp.GetEverdayAccount().Balance);
-            listBox1.Items.Add("Investment $" + temp.GetInvestmentAccount().Balance);
-            listBox1.Items.Add("Omni $" + temp.GetOmniAccount().Balance);
-            
+            foreach(Customer cust in c.GetCustomerNameList())
+                {
+                    if(t.CustomerName == cust.CustomerName)
+                    {
+                        listBox1.Items.Add(accountNames[0] + " $" +  cust.GetEverdayAccount().Balance);
+                        listBox1.Items.Add(accountNames[1] + " $" + cust.GetInvestmentAccount().Balance);
+                        listBox1.Items.Add(accountNames[2] + " $" + cust.GetOmniAccount().Balance);
+                    }
+                }
             }
         }
-        //Add New Account
+
         private void button1_Click(object sender, EventArgs e)
         {
             AddNewAccount newAccount = new AddNewAccount(temp);
@@ -48,114 +51,157 @@ namespace Assignment_3_01
         //Deposit
         private void button2_Click(object sender, EventArgs e)
         {
-            button2.BackColor = Color.DarkGray;
-            button2Clicked = true;
+            buttonClicked[0] = true;
+            buttonClicked[1] = false;
         }
         //Withdraw
         private void button3_Click(object sender, EventArgs e)
         {
-            button3.BackColor = Color.DarkGray;
-            button3Clicked = true;
+            buttonClicked[1] = true;
+            buttonClicked[0] = false;
         }
         //Transfer
         private void button4_Click(object sender, EventArgs e)
         {
-            button4Clicked = true;
-            button1Clicked = true;
             TransferForm f = new TransferForm(temp);
             f.StartPosition = FormStartPosition.CenterScreen;
             f.Show();
             this.Hide();
-    }
+        }
         //Save Button
         private void button5_Click(object sender, EventArgs e)
         {
-            //Fix this bug
-            if (txtValue.Text.Equals("")) 
+            int selected = listBox1.SelectedIndex;
+            double value = Convert.ToDouble(txtValue.Text);
+            double balance;
+
+            //Deposit
+            if(buttonClicked[0] == true)
             {
-                MessageBox.Show("Please enter an amount");
-            }
-            if (button1Clicked == false && button2Clicked == false && button3Clicked == false && button4Clicked == false)
-            {
-                MessageBox.Show("Please select an action");
-            }
-            else
-            {
-                int selected = listBox1.SelectedIndex;
-                double value = Convert.ToDouble(txtValue.Text);
-                double balance;
-                //Deposit
-                if (button2Clicked == true)
+                switch (selected)
                 {
-                    switch (selected)
-                    {
-                        case 0:
-                            balance = temp.GetEverdayAccount().Balance;
-                            temp.GetEverdayAccount().Balance = c.MakeDeposit(value, balance);
-                            RefreshList();
-                            break;
-                        case 1:
-                            balance = temp.GetInvestmentAccount().Balance;
-                            temp.GetInvestmentAccount().Balance = c.MakeDeposit(value, balance);
-                            RefreshList();
-                            break;
-                        case 2:
-                            balance = temp.GetOmniAccount().Balance;
-                            temp.GetOmniAccount().Balance = c.MakeDeposit(value, balance);
-                            RefreshList();
-                            break;
-                    }
+                    case 0:
+                        balance = temp.GetEverdayAccount().Balance;
+                        temp.GetEverdayAccount().Balance = c.MakeDeposit(value, balance);
+                        RefreshList();
+                        break;
+
+                    case 1:
+                        balance = temp.GetInvestmentAccount().Balance;
+                        temp.GetInvestmentAccount().Balance = c.MakeDeposit(value, balance);
+                        RefreshList();
+                        break;
+                    case 2:
+                        balance = temp.GetOmniAccount().Balance;
+                        temp.GetOmniAccount().Balance = c.MakeDeposit(value, balance);
+                        RefreshList();
+                        break;
                 }
+            }
+           
+            //Withdrawal
+            if(buttonClicked[1] == true)
+            {
+                switch (selected)
+                {
+                    case 0:
+                        balance = temp.GetEverdayAccount().Balance;
+                        if(c.FailedWithdrawalCheck(value, balance) != true)
+                        {
+                            temp.GetEverdayAccount().Balance = c.MakeWithdrawal(value, balance);
+                        }
+                        else
+                        {
+                            balance = balance - Account.withdrawalPenalty;
+                            temp.GetEverdayAccount().Balance = balance;
+                            MessageBox.Show("You do not have enough funds to process this transaction \n You have incurred a $10.00 penalty");
+                        }
+                        RefreshList();
+                        break;
+
+                    case 1:
+                        balance = temp.GetInvestmentAccount().Balance;
+                        if (c.FailedWithdrawalCheck(value, balance) != true)
+                        {
+                            temp.GetInvestmentAccount().Balance = c.MakeWithdrawal(value, balance);
+                        }
+                        else
+                        {
+                            balance = balance - Account.withdrawalPenalty;
+                            temp.GetInvestmentAccount().Balance = balance;
+                            MessageBox.Show("You do not have enough funds to process this transaction \n You have incurred a $10.00 penalty");
+                        }
+                        RefreshList();
+                        break;
+
+                    case 2:
+                        balance = temp.GetOmniAccount().Balance;
+                        if (c.FailedWithdrawalCheck(value, balance) != true)
+                        {
+                            temp.GetOmniAccount().Balance = c.MakeWithdrawal(value, balance);
+                        }
+                        else
+                        {
+                            balance = balance - Account.withdrawalPenalty;
+                            temp.GetOmniAccount().Balance = balance;
+                            MessageBox.Show("You do not have enough funds to process this transaction \n You have incurred a $10.00 penalty");
+                        }
+                        RefreshList();
+                        break;
+                }
+            }
+
+                
                 //Withdrawal
-                if(button3Clicked == true)
-                {
-                    switch (selected)
-                    {
-                        case 0:
-                            balance = temp.GetEverdayAccount().Balance;
-                            if(c.FailedWithdrawalCheck(value, balance)!= true)
-                            {
-                                temp.GetEverdayAccount().Balance = c.MakeWithdrawal(value, balance);
-                            }
-                            else
-                            {
-                                balance = balance - Account.withdrawalPenalty;
-                                temp.GetEverdayAccount().Balance = balance;
-                                MessageBox.Show("You do not have enough funds to process this transaction \n You have incurred a $10.00 penalty");
-                            }
-                            RefreshList();
-                            break;
-                        case 1:
-                            balance = temp.GetInvestmentAccount().Balance;
-                            if(c.FailedWithdrawalCheck(value, balance) != true)
-                            {
-                                temp.GetInvestmentAccount().Balance = c.MakeWithdrawal(value, balance);
-                            }
-                            else
-                            {
-                                balance = balance - Account.withdrawalPenalty;
-                                temp.GetInvestmentAccount().Balance = balance;
-                                MessageBox.Show("You do not have enough funds to process this transaction \n You have incurred a $10.00 penalty");
-                            }
-                            RefreshList();
-                            break;
-                        case 2:
-                            balance = temp.GetOmniAccount().Balance;
-                            if(c.FailedWithdrawalCheck(value, balance) != true)
-                            {
-                                temp.GetOmniAccount().Balance = c.MakeWithdrawal(value, balance);
-                            }
-                            else
-                            {
-                                balance = balance - Account.withdrawalPenalty;
-                                temp.GetOmniAccount().Balance = balance;
-                                MessageBox.Show("You do not have enough funds to process this transaction \n You have incurred a $10.00 penalty");
-                            }
-                            RefreshList();
-                            break;
-                    }
-                }
-            }
+                //if(buttonsClicked[2] == true)
+                //{
+                //    switch (selected)
+                //    {
+                //        case 0:
+                //            balance = temp.GetEverdayAccount().Balance;
+                //            if(c.FailedWithdrawalCheck(value, balance)!= true)
+                //            {
+                //                temp.GetEverdayAccount().Balance = c.MakeWithdrawal(value, balance);
+                //            }
+                //            else
+                //            {
+                //                balance = balance - Account.withdrawalPenalty;
+                //                temp.GetEverdayAccount().Balance = balance;
+                //                MessageBox.Show("You do not have enough funds to process this transaction \n You have incurred a $10.00 penalty");
+                //            }
+                //            RefreshList();
+                //            break;
+                //        case 1:
+                //            balance = temp.GetInvestmentAccount().Balance;
+                //            if(c.FailedWithdrawalCheck(value, balance) != true)
+                //            {
+                //                temp.GetInvestmentAccount().Balance = c.MakeWithdrawal(value, balance);
+                //            }
+                //            else
+                //            {
+                //                balance = balance - Account.withdrawalPenalty;
+                //                temp.GetInvestmentAccount().Balance = balance;
+                //                MessageBox.Show("You do not have enough funds to process this transaction \n You have incurred a $10.00 penalty");
+                //            }
+                //            RefreshList();
+                //            break;
+                //        case 2:
+                //            balance = temp.GetOmniAccount().Balance;
+                //            if(c.FailedWithdrawalCheck(value, balance) != true)
+                //            {
+                //                temp.GetOmniAccount().Balance = c.MakeWithdrawal(value, balance);
+                //            }
+                //            else
+                //            {
+                //                balance = balance - Account.withdrawalPenalty;
+                //                temp.GetOmniAccount().Balance = balance;
+                //                MessageBox.Show("You do not have enough funds to process this transaction \n You have incurred a $10.00 penalty");
+                //            }
+                //            RefreshList();
+                //            break;
+                //    }
+                //}
+            
         }
 
         public void RefreshList()
@@ -216,16 +262,6 @@ namespace Assignment_3_01
                     balanceWithInterest.Add(sum);
                     count++;
                 }
-
-                //Write out labels here
-                /*
-                foreach (double d in balanceWithInterest)
-                {
-
-                    listBox1.Items.Add(d);
-                }
-                */
-
                 for(int i = 0; i < balanceWithInterest.Count; i++)
                 {
                     listBox1.Items.Add(name[i] + balanceWithInterest[i]);

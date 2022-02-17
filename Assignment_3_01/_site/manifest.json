@@ -1,0 +1,306 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Users/Dave/source/repos/Assignment_3_01/Assignment_3_01",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "q3shdvfpDmncMqctF3rUIjhWXITFgCJsHHUqZGTDM2c="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "OxMV/51WnSFr2+bQe5YunaNkV+KHxPiI8xrNtLQX9uc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "BlPxk5mtl2kgfcZUgkEguqiSAR/EUyUTT4EdebwkQvs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "hBL7Or4ruht9HkZAg+/EUDJZbA9jISozzrX3IjBc+5E="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Assignment_3_01.Account.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Assignment_3_01.Account.html",
+          "hash": "8IBIhildPVAsQz9KEgXdT1Nj/niWMTj/ssP5Vax8l2c="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Assignment_3_01.AddCustomer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Assignment_3_01.AddCustomer.html",
+          "hash": "6qi/lKZvncMfpFWJRDtep8Ijbuuyo3A8jgVQddmKPls="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Assignment_3_01.AddNewAccount.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Assignment_3_01.AddNewAccount.html",
+          "hash": "IKNYog8Ze5bggQTrUIud9K3hPQG/jk12UF4lu5xTu3c="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Assignment_3_01.BankForm.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Assignment_3_01.BankForm.html",
+          "hash": "ilOlP9HJpa9Mfq8JOGdQOQm/Zq/GxRMdBS6UuYsdRdI="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Assignment_3_01.BaseDesign.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Assignment_3_01.BaseDesign.html",
+          "hash": "2DLcqMvx7FZpWAJ+OQQfA/1qoLtJTZfAmJfhQ0jB3EU="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Assignment_3_01.Controller.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Assignment_3_01.Controller.html",
+          "hash": "N3PB5XxM981bUTt3co9S0/9SeWHjLijcFJLCmz7SLYc="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Assignment_3_01.Customer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Assignment_3_01.Customer.html",
+          "hash": "oElG1oBiOfIHmE4D33q0C/4vK0yNj+EDFkTKfdRZ7Zw="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Assignment_3_01.CustomerForm.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Assignment_3_01.CustomerForm.html",
+          "hash": "i5+Y5C6UmlKodd7aygBZ7HBTnXv2+shC+m4hPWKtv4s="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Assignment_3_01.EditCustomer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Assignment_3_01.EditCustomer.html",
+          "hash": "K2nmZ164G4ByHlH5RVS+SS93J0dEgJNaGDvS5Abtl/4="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Assignment_3_01.EverdayAccount.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Assignment_3_01.EverdayAccount.html",
+          "hash": "MkRKQa+tDAiCzYJlvyMFSuYDaPeAqRnnrmdJ8rIe3BA="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Assignment_3_01.Home.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Assignment_3_01.Home.html",
+          "hash": "bVKlP3cK3UAAZt3BHkZSb8x9WwLI1lrnxaDjjVdjCXU="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Assignment_3_01.InvestmentAccount.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Assignment_3_01.InvestmentAccount.html",
+          "hash": "W6mnIRr5oae6vDkmV3Nfw3qdzl9W2MYmM/0Jx9Vm7aQ="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Assignment_3_01.OmniAccount.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Assignment_3_01.OmniAccount.html",
+          "hash": "FJMCbCvl8gF8yYFxTt45iXCRVvN7ByPaplJ94riA1hw="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Assignment_3_01.TransferForm.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Assignment_3_01.TransferForm.html",
+          "hash": "psGn4tt1LfAJ7gg4RIbLIqaaZaMWCplyipnXWfv3/wU="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Assignment_3_01.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Assignment_3_01.html",
+          "hash": "9UTIq95c8D/2sZlqoci4k9H+imXpPnqJ42QToSfQ2AQ="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "5OFNQHTYWx1KwKZFcPbTrA6O5iPKaiPxk5K/xa983oQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "Oa9PuD4E1hvZnCkVjUgzNBX6S00Zo5YilamTERTZo54="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 3,
+          "skipped_file_count": 3
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 15,
+          "skipped_file_count": 15
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

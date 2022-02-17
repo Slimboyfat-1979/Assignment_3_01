@@ -10,9 +10,14 @@ using System.Windows.Forms;
 
 namespace Assignment_3_01
 {
+    [Serializable]
     public partial class AddCustomer : BaseDesign
     {
         Controller c = Home.GetController();
+        int[] accountTypeIndicator = {0,1,2};
+        double eBalance;
+        double iBalance;
+        double oBalance;
         public AddCustomer()
         {
             InitializeComponent();
@@ -21,10 +26,10 @@ namespace Assignment_3_01
         private void button1_Click(object sender, EventArgs e)
         {
             string newCustomer = customerEntry.Text;
-            double eBalance = Convert.ToInt32(eBalanceText.Text);
-            double iBalance = Convert.ToInt32(IBalanceText.Text);
-            double oBalance = Convert.ToInt32(OBalanceText.Text);
-            c.AddCustomer(newCustomer, eBalance, iBalance, oBalance);
+            eBalance = Convert.ToInt32(eBalanceText.Text);
+            iBalance = Convert.ToInt32(IBalanceText.Text);
+            oBalance = Convert.ToInt32(OBalanceText.Text);
+            c.AddCustomer(newCustomer, eBalance, iBalance, oBalance, accountTypeIndicator);
 
             this.Hide();
             CustomerForm customerForm = new CustomerForm();

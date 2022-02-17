@@ -9,7 +9,7 @@ namespace Assignment_3_01
     public class EverdayAccount : Account
     {
         Controller c = Home.GetController();
-        public EverdayAccount(string name, double balance) : base(name, balance)
+        public EverdayAccount(string name, double balance, int accountIndicator) : base(name, balance, accountIndicator)
         {
             
         }
